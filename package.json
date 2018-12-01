@@ -24,8 +24,8 @@
   },
   "homepage": "https://github.com/sugarbrain/sitdown#readme",
   "dependencies": {
-    "express": "^4.16.4",
     "mqtt": "^2.18.8",
-    "websocket": "^1.0.28"
+    "websocket": "^1.0.28",
+    "pigpio": "^1.2.0"
   }
 }
