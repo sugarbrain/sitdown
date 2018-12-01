@@ -1,0 +1,29 @@
+{
+  "name": "sitdown",
+  "version": "0.0.1",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sugarbrain/sitdown.git"
+  },
+  "keywords": [
+    "Mobility",
+    "Bus",
+    "Public",
+    "transport",
+    "UFPE"
+  ],
+  "author": "Antonio Neto, Eduardo Moura and Vinicius Giles",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sugarbrain/sitdown/issues"
+  },
+  "homepage": "https://github.com/sugarbrain/sitdown#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
