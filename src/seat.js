@@ -7,7 +7,6 @@ class Seat {
   constructor() {
     this.distance = 0;
     this.available = true;
-    this.firstTick = true;
     this.connection = {
       broker: mqtt.connect('mqtt://broker.hivemq.com'),
       topic: 'SITDOWN'
@@ -48,12 +47,12 @@ class Seat {
         } else {
           const endTick = tick;
           const diff = (endTick >> 0) - (startTick >> 0); // Unsigned 32 bit arithmetic
-          const dist = diff / 2 / MICROSECDONDS_PER_CM;
-
+          let dist = diff / 2 / MICROSECDONDS_PER_CM;
+          if (dist < 200 && dist > 1) {
+            this.logHistory(dist);
+            this.checkState(dist);
+	  }
           console.log(dist);
-          this.logHistory(dist);
-          this.checkState(dist);
-          this.firstTick = false;
         }
       });
     };
