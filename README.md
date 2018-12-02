@@ -36,7 +36,7 @@ Installing on Linux (Ubuntu):
 $ sudo apt install sshpass
 ```
 
-### Hardware archtecture
+### Hardware architecture
 ![Raspberry](https://raw.githubusercontent.com/fivdi/pigpio/master/example/distance-hc-sr04.png)
 
 ### Installing
