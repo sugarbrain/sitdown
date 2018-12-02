@@ -1,4 +1,4 @@
-# ![Sitdown](/src/view/asserts/images/logo.png)
+# ![Sitdown](/src/view/assets/images/logo.png)
 
 Sitdown is a web of things utility that provides live information to help users to know how many available seats are there in the buses. It runs in a Raspberry Pi and uses some ultrasonic sensors to know how many seats are being used through a MQTT broker connection.
 
@@ -35,6 +35,9 @@ Installing on Linux (Ubuntu):
 ```
 $ sudo apt install sshpass
 ```
+
+### Hardware archtecture
+![Raspberry](https://raw.githubusercontent.com/fivdi/pigpio/master/example/distance-hc-sr04.png)
 
 ### Installing
 
