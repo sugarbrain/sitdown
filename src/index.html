@@ -6,12 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="index.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <title>Sitdown</title>
 </head>
 <body>
     <img src="logo.png" class="img-container" height="80">
     <div class="flex-container row">
-        <div class="progress-bar yellow">
+        <div class="progress-bar yellow" id="bar" p="0%">
                 <div id="percentage" style="width: 0%"></div>  
         </div>
     </div>
@@ -39,6 +40,9 @@
             document.getElementById("percentage").style.width = percentage.toString() + "%";
             document.getElementById("total").innerHTML = total;
             document.getElementById("available").innerHTML = available;
+
+            document.getElementById("bar").setAttribute("p", percentage + "%");
+            
         }
     </script>
 </body>

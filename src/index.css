@@ -1,3 +1,7 @@
+body{
+    font-family: 'Lato', sans-serif;
+}
+
 .img-container{
     display: block;
     margin-left: auto;
@@ -16,15 +20,35 @@
     justify-content: center;
 }
 
+.flex-container ul {
+    display: flex;
+    justify-content: space-around;
+}
+.flex-container li {
+    margin: 0 47px;
+}
+
 .progress-bar {
     background-color: #4e4e4e;
     height: 10px;
     width: 350px;
+    position: relative;
 }
 
 .progress-bar div{
     height: 100%;
     transition: width .4s ease-in-out;    
+}
+
+.progress-bar:after {
+    content: attr(p);
+    color: white;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 2px;
+    font-size: 7px;
 }
 
 .yellow div {

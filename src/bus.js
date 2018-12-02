@@ -29,7 +29,6 @@ server.subscribe('SITDOWN');
 server.on('message', (topic, message) => {
     const seatMsg = JSON.parse(message);
     console.log(seatMsg.action);
-
     switch (seatMsg.action) {
         case 'SEAT_REGISTER':
             Seats.addSeat();
