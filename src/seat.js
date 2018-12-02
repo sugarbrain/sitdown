@@ -5,59 +5,6 @@ const topic = 'SITDOWN';
 
 console.log('Connected.');
 
-seat.publish(topic, JSON.stringify({
-    action: 'SEAT_REGISTER',
-    available: true
-}));
-
-seat.publish(topic, JSON.stringify({
-    action: 'SEAT_REGISTER',
-    available: true
-}));
-
-seat.publish(topic, JSON.stringify({
-    action: 'SEAT_REGISTER',
-    available: true
-}));
-
-seat.publish(topic, JSON.stringify({
-    action: 'SEAT_REGISTER',
-    available: true
-}));
-
-
-setTimeout(() => {
-    seat.publish(topic, JSON.stringify({
-        action: 'SEAT_UPDATE',
-        available: false
-    }));
-    
-}, 1000);
-
-setTimeout(() => {
-    seat.publish(topic, JSON.stringify({
-        action: 'SEAT_UPDATE',
-        available: false
-    }));
-    
-}, 2000);
-
-setTimeout(() => {
-    seat.publish(topic, JSON.stringify({
-        action: 'SEAT_UPDATE',
-        available: false
-    }));
-    
-}, 3000);
-
-setTimeout(() => {
-    seat.publish(topic, JSON.stringify({
-        action: 'SEAT_UPDATE',
-        available: false
-    }));
-    
-}, 4000);
-
 const Gpio = require('pigpio').Gpio;
 
 // The number of microseconds it takes sound to travel 1cm at 20 degrees celcius
@@ -68,6 +15,8 @@ const echo = new Gpio(24, {mode: Gpio.INPUT, alert: true});
 
 trigger.digitalWrite(0); // Make sure trigger is low
 
+let initialTick = true;
+
 const watchHCSR04 = () => {
   let startTick;
 
@@ -77,7 +26,13 @@ const watchHCSR04 = () => {
     } else {
       const endTick = tick;
       const diff = (endTick >> 0) - (startTick >> 0); // Unsigned 32 bit arithmetic
-      console.log(diff / 2 / MICROSECDONDS_PER_CM);
+      const dist = diff / 2 / MICROSECDONDS_PER_CM;
+      console.log(dist);
+      seat.publish(topic, JSON.stringify({
+         action: initialTick ? 'SEAT_REGISTER' : 'SEAT_UPDATE',
+         distance: dist
+      }));
+      initialTick = false;
     }
   });
 };
@@ -88,3 +43,4 @@ watchHCSR04();
 setInterval(() => {
   trigger.trigger(10, 1); // Set trigger high for 10 microseconds
 }, 1000);
+
