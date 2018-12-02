@@ -4,13 +4,16 @@ const Gpio = require('pigpio').Gpio;
 console.log('Connected.');
 
 class Seat {
-  constructor() {
+  constructor(trigger, echo) {
     this.distance = 0;
     this.available = true;
     this.connection = {
       broker: mqtt.connect('mqtt://broker.hivemq.com'),
       topic: 'SITDOWN'
     };
+
+    this.trigger = trigger;
+    this.echo = echo;
     
     this.history = [];
   }
@@ -33,8 +36,8 @@ class Seat {
       available: this.available
     }));
     const MICROSECDONDS_PER_CM = 1e6/34321;
-    const trigger = new Gpio(23, { mode: Gpio.OUTPUT });
-    const echo = new Gpio(24, { mode: Gpio.INPUT, alert: true });
+    const trigger = new Gpio(this.trigger, { mode: Gpio.OUTPUT });
+    const echo = new Gpio(this.echo, { mode: Gpio.INPUT, alert: true });
 
     trigger.digitalWrite(0);
 
@@ -47,12 +50,12 @@ class Seat {
         } else {
           const endTick = tick;
           const diff = (endTick >> 0) - (startTick >> 0); // Unsigned 32 bit arithmetic
-          let dist = diff / 2 / MICROSECDONDS_PER_CM;
-          if (dist < 200 && dist > 1) {
-            this.logHistory(dist);
-            this.checkState(dist);
-	  }
-          console.log(dist);
+          const dist = diff / 2 / MICROSECDONDS_PER_CM;
+
+          console.log(`Seat ${this.trigger}: ${dist}`);
+          this.logHistory(dist);
+          this.checkState(dist);
+          this.firstTick = false;
         }
       });
     };
@@ -78,6 +81,8 @@ class Seat {
   }
 }
 
-let seat = new Seat();
-seat.init();
+let seat1 = new Seat(23, 24);
+seat1.init();
 
+const seat2 = new Seat(17, 27);
+seat2.init();
