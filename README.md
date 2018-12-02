@@ -1,6 +1,6 @@
-# Project Title
+# Sitdown
 
-One Paragraph of project description goes here
+Sitdown is a web of things utility that provides live information to help users to know how many available seats are there in the buses. It runs in a Raspberry Pi and uses some ultrasonic sensors to know how many seats are being used through a MQTT broker connection.
 
 ## Getting Started
 
@@ -8,80 +8,59 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+#### Git
+In order for clone the repository it is necessary to have installed [git] (https://git-scm.com/) on your machine.
 
+Installing on Linux (Ubuntu):
 ```
-Give examples
+$ sudo apt-get install git
+```
+#### Node.js
+In order for ibiatilize the code it is necessary to have installed [Node.js] (https://nodejs.org/en/) on your machine.
+
+Installing on Linux (Ubuntu):
+```
+$ sudo apt install curl
+$ curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
+$ sudo apt install nodejs
+```
+#### SSH
+Installing on Linux (Ubuntu):
+```
+$ sudo apt install ssh
+```
+
+#### SSHPass
+Installing on Linux (Ubuntu):
+```
+$ sudo apt install sshpass
 ```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+#### Clonning Sitdown repo
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
+Once you have all the prerequisites installed, let's go to the first step of all Github repository: Clone and extract the repository.
 
 ```
-until finished
+$ git clone https://github.com/sugarbrain/sitdown/
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+#### Installing dependencies
 
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+In this step, we will install all the necessary needs for the initiation of the project.
 
 ```
-Give an example
+$ cd sitdown
+$ sudo npm install
 ```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Antonio Neto** - *Initial work* - [aacgn](https://github.com/aacgn)
+* **Eduardo Santos** - *Initial work* - [eduardosm7](https://github.com/eduardosm7)
+* **Vinícius Giles** - *Initial work* - [gilesv](https://github.com/gilesv)
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
