@@ -29,6 +29,10 @@ class Seat {
   }
 
   init() {
+    this.connection.broker.publish(this.connection.topic, JSON.stringify({
+      action: 'SEAT_REGISTER',
+      available: this.available
+    }));
     const MICROSECDONDS_PER_CM = 1e6/34321;
     const trigger = new Gpio(23, { mode: Gpio.OUTPUT });
     const echo = new Gpio(24, { mode: Gpio.INPUT, alert: true });
@@ -68,7 +72,7 @@ class Seat {
       this.available = !this.available;
 
       this.connection.broker.publish(this.connection.topic, JSON.stringify({
-        action: this.firstTick ? 'SEAT_REGISTER' : 'SEAT_UPDATE',
+        action: 'SEAT_UPDATE',
         available: this.available
       }));
     }
