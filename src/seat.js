@@ -17,8 +17,8 @@ class Seat {
   }
 
   logHistory(dist) {
-    if (this.history.length > 5) {
-      this.history.slice(1);
+    if (this.history.length > 2) {
+      this.history = this.history.slice(1);
     }
 
     this.history.push(dist);
@@ -64,10 +64,10 @@ class Seat {
   }
 
   checkState() {
-    if ((this.averageDistance() >= 20.0 && !this.available) || (this.averageDistance() < 20.0 && this.available)) {
+    if ((this.averageDist() >= 20.0 && !this.available) || (this.averageDist() < 20.0 && this.available)) {
       this.available = !this.available;
 
-      seat.publish(topic, JSON.stringify({
+      this.connection.broker.publish(this.connection.topic, JSON.stringify({
         action: this.firstTick ? 'SEAT_REGISTER' : 'SEAT_UPDATE',
         available: this.available
       }));
@@ -77,3 +77,4 @@ class Seat {
 
 let seat = new Seat();
 seat.init();
+
