@@ -1,0 +1,32 @@
+.img-container{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.flex-container {
+    height: 100%;
+    padding: 0;
+    margin: 20px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+}
+
+.progress-bar {
+    background-color: #4e4e4e;
+    height: 10px;
+    width: 350px;
+}
+
+.progress-bar div{
+    height: 100%;
+    transition: width .4s ease-in-out;    
+}
+
+.yellow div {
+    background-color: #f1c40f;   
+}
