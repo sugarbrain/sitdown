@@ -5,7 +5,7 @@
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "seat": "cd src && node seat",
+    "seat": "node ./src/seat.js",
     "bus": "node ./src/bus.js"
   },
   "repository": {
