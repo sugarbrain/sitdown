@@ -4,7 +4,9 @@
   "description": "",
   "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seat": "cd src && node seat",
+    "bus": "node ./src/bus.js"
   },
   "repository": {
     "type": "git",
