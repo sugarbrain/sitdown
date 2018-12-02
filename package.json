@@ -5,8 +5,10 @@
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "seat": "node ./src/seat.js",
-    "bus": "node ./src/bus.js"
+    "start": "npm run bus | npm run server | npm run seat",
+    "server": "node index.js",
+    "bus": "node ./src/bus.js",
+    "seat": "./init_seat.sh"
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,7 @@
   },
   "homepage": "https://github.com/sugarbrain/sitdown#readme",
   "dependencies": {
+    "express": "^4.16.4",
     "mqtt": "^2.18.8",
     "pigpio": "^1.2.0",
     "websocket": "^1.0.28"
